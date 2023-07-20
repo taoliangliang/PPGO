@@ -3,8 +3,6 @@ from __future__ import print_function
 from __future__ import absolute_import
 from __future__ import unicode_literals
 
-from imblearn.combine import SMOTEENN
-from imblearn.over_sampling import SMOTE
 from sklearn.linear_model import LogisticRegression
 import warnings
 import numpy as np
