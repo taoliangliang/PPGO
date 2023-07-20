@@ -187,7 +187,7 @@ class PDGO(object):
             # G represents the number of samples to be generated for the minority class, 
             self.G = self.clstats[self.maj_class_] - self.clstats[minority_label]
 
-            # ADASYN is built upon eucliden distance so p=2 default
+            # PPGO is built upon eucliden distance so p=2 default
             self.nearest_neighbors_ = NearestNeighbors(n_neighbors=self.k + 1)
             self.nearest_neighbors_.fit(self.X)
 
