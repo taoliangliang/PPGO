@@ -146,16 +146,13 @@ class PDGO(object):
         :param X: Original sample features.
         :param y: Sample labels.
         :return: 
-        '''
 
-        oversample = SMOTEENN()
-        train_sample_x, train_sample_y  = oversample.fit_resample(X, y)
         lr = LogisticRegression(max_iter=2000)
         labelencoder = LabelEncoder()
-        train_sample_y = labelencoder.fit_transform(train_sample_y)
+        y = labelencoder.fit_transform(y)
 
         y = LabelEncoder().fit_transform(y)
-        lr_model = lr.fit(train_sample_x, train_sample_y)
+        lr_model = lr.fit(X, y)
         proba = lr_model.predict_proba(X)
 
         priori = [pi[label] for label, pi in zip(y, proba)]
